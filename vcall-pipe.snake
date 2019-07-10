@@ -1,10 +1,10 @@
 #----------------Settings:----------------------------------------------
-#print('Insert configfile directory:("/mnt/share/config_docker.yaml")')
+#print('Insert configfile directory:("/mnt/share/vcall/config_docker.yaml")')
 #config_f = input()
 #print('Configfile: ',config_f)
 #configfile: config_f
 
-configfile:"/mnt/share/config_docker.yaml"
+configfile:"/mnt/share/vcall/config_docker.yaml"
 
 #|_________Threading_sets:___________|
 
@@ -14,7 +14,6 @@ normal_vs_tumor_threads_threas = config["Normal_VS_Tumor_threads"]
 
 #|__________Dir_settings:____________|
 
-base_dir = config["base_dir"]
 main_dir = config["main_dir"] 
 genome_dir = config["genome_dir"]
 sample_dir = config["sample_dir"] 
@@ -42,7 +41,7 @@ rule bwa_index:
 	input:
 		fa = main_dir + genome_dir + GENOME + ".fasta"# GENOME = b37_human_g1k_v37_decoy.chr20
 	output:
-		main_dir + genome_dir + GENOME + '.fasta.sa'
+		main_dir + genome_dir + GENOME + '.fasta.sa' #inicial output em genome_dir
 	message:
 		'Building index -> {output}'
 	shell:
@@ -67,8 +66,8 @@ rule BWA_samblaster_sambamba: #Align reads to reference (using BWA);
 
 rule gatk3_register:
 	input:
-		base_dir + 'GenomeAnalysisTK-3.8-1-0-gf15c1c3ef/GenomeAnalysisTK.jar'
-		#base_dir = '/home/jmatos/docker_pipe/'
+		main_dir + 'GenomeAnalysisTK-3.8-1-0-gf15c1c3ef/GenomeAnalysisTK.jar'
+		
 	output:
 		jar_dir +'gatk-3.8/GenomeAnalysisTK.jar'
 		#jar_dir = '/opt/conda/opt/'
