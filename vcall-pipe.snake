@@ -105,7 +105,7 @@ rule gatk_BaseRecalibrator: #multitheading error
 		#reads = main_dir + '{sample}.alignment.bam', #single_sample
 		#L = intervalfile
 		#l_target = main_dir + sample_dir + TARGET
-	output:
+	output: 
 		recal_data = main_dir + output_dir + '{sample}.sorted.bam_pre_recal_data.grp',#"$sample"
 		base_recal = main_dir + output_dir + logs_dir +'{sample}.base_recal.qsub'#/logs
 	shell:
