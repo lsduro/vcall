@@ -23,7 +23,7 @@ COSMIC = config["COSMIC"]
 #------------------------------------------------------------------------
 rule bwa_index:
 	input:
-		fa = main_dir + genome_dir + GENOME + ".fasta"# GENOME = b37_human_g1k_v37_decoy.chr20
+		fa = main_dir + genome_dir + GENOME + ".fasta"
 	output:
 		main_dir + genome_dir + GENOME + '.fasta.sa'
 	message:

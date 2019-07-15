@@ -6,7 +6,7 @@ main_dir: /mnt/share/ #docs / repository in docker env
 
 
 
-genome_dir: genome_b37/ # genome data
+genome_dir: genome_input/ # genome data
 
 
 
@@ -39,19 +39,19 @@ jar_SnpSift: /opt/conda/pkgs/snpsift-4.3.1t-1/share/
 
 
 
-GENOME: b37_human_g1k_v37_decoy.chr20
+GENOME: resources_broad_hg38_v0_Homo_sapiens_assembly38
 
 
 
-KS1: b37_dbsnp_138.b37.chr_20p12.1.vcf.gz
+KS1: resources_broad_hg38_v0_Homo_sapiens_assembly38.dbsnp138.vcf.gz
 
 
 
-KS2: b37_Mills_and_1000G_gold_standard.indels.b37.chr_20p12.1.vcf.gz
+KS2: resources_broad_hg38_v0_Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
 
 
 
-KS3: b37_1000G_phase1.indels.b37.chr_20p12.1.vcf.gz
+KS3: resources_broad_hg38_v0_1000G_phase1.snps.high_confidence.hg38.vcf.gz
 
 
 
@@ -60,18 +60,18 @@ KS3: b37_1000G_phase1.indels.b37.chr_20p12.1.vcf.gz
 
 
 
-TARGET: -L /mnt/share/sample_input/b37.vcrome2.1.ann.chr_20.bed
+TARGET: -L /mnt/share/sample_input/SureSelect_V6_human_all_Exons.bed
 
 
 
-TARGET_C: --targets /mnt/share/sample_input/b37.vcrome2.1.ann.chr_20.bed
+TARGET_C: --targets /mnt/share/sample_input/SureSelect_V6_human_all_Exons.bed
 
 
 #TARGET: ""
 
 
 
-COSMIC: --cosmic /mnt/share/genome_b37/CosmicCodingMuts_v87_12_03_2019.chr_20p12.1.vcf.gz
+COSMIC: --cosmic /mnt/share/genome_input/CosmicCodingMuts.hg38.vcf.gz
 
 
 #COSMIC: ""
