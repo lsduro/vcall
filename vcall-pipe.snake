@@ -3,7 +3,7 @@
 #config_f = input()
 #print('Configfile: ',config_f)
 #configfile: config_f
-configfile: "/mnt/share/vcall/config_docker.yaml"
+configfile: "./vcall/config_docker.yaml"
 #|__________Dir_settings:____________|
 main_dir = config["main_dir"] 
 genome_dir = config["genome_dir"]
@@ -33,7 +33,7 @@ rule bwa_index:
 
 rule BWA_samblaster_sambamba:
 	input:
-	 	index = main_dir + genome_dir + GENOME + '.fasta.sa',# GENOME = b37_human_g1k_v37_decoy.chr20
+	 	index = main_dir + genome_dir + GENOME + '.fasta.sa',
 		ref = main_dir + genome_dir + GENOME + '.fasta',
 		r_fow = main_dir + sample_dir + '{sample}.R1.fastq.gz',
 		r_rev = main_dir + sample_dir + '{sample}.R2.fastq.gz'
@@ -56,7 +56,7 @@ rule gatk3_register:
 		jar_dir +'gatk-3.8/GenomeAnalysisTK.jar'
 		#jar_dir = '/opt/conda/opt/'
 	shell:
-		'gatk-register {input}'
+		'gatk3-register {input}'
 
 rule picard_dict:
 	input:
