@@ -3,7 +3,7 @@
 #config_f = input()
 #print('Configfile: ',config_f)
 #configfile: config_f
-configfile: "./vcall/config_docker.yaml"
+configfile: "/mnt/share/vcall/config_docker.yaml"
 #|__________Dir_settings:____________|
 main_dir = config["main_dir"] 
 genome_dir = config["genome_dir"]
